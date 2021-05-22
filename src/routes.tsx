@@ -1,37 +1,52 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
+  Redirect,
   Route,
   Switch,
 } from 'react-router-dom';
 
 import RouteRegistry from './constants/route-registry';
 
-const SignIn = React.lazy(() =>
-  import('./views/auth/sign-in')
-);
-const SignUp = React.lazy(() =>
-  import('./views/auth/sign-up')
-);
+// const SignIn = React.lazy(() =>
+//   import('./views/user/sign-in')
+// );
+// const SignUp = React.lazy(() =>
+//   import('./views/user/sign-up')
+// );
+import Landing from './views/landing/index';
+import User from './views/user/index';
+import Dashboard from './views/dashboard/index';
+import Error404 from './components/common/error/error-404';
 
-const Routes = () => {
+const AppRoutes = () => {
 
   return (
     <Router>
       <Switch>
         <Route
-          path={RouteRegistry.auth.subPaths.signIn.path}
+          path={RouteRegistry.landing.path}
           exact
-          render={(props) => <SignIn {...props} />}
+          render={() => <Landing />}
         />
         <Route
-          path={RouteRegistry.auth.subPaths.signUp.path}
+          path={RouteRegistry.user.path}
+          render={(props) => <User {...props} />}
+        />
+        <Route
+          path={RouteRegistry.app.path}
+          render={(props) => <Dashboard {...props} />}
+        />
+        <Route
+          path={RouteRegistry.error.path}
           exact
-          render={(props) => <SignUp {...props} />}
-        />        
+          render={(props) => <Error404 />}
+        />
+        <Redirect to={RouteRegistry.error.path}
+        />
       </Switch>
     </Router>
   )
 }
 
-export default Routes;
+export default AppRoutes;

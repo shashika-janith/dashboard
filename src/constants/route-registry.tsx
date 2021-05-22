@@ -2,8 +2,11 @@ const RouteRegistry = {
   landing: {
     path: '/',
   },
-  auth: {
-    path: '/auth',
+  app: {
+    path: '/app',
+  },
+  user: {
+    path: '/user',
     subPaths: {
       signIn: {
         path: '/signin'
@@ -12,6 +15,9 @@ const RouteRegistry = {
         path: '/signup'
       }
     }
+  },
+  error: {
+    path: '/error',
   }
 }
 
