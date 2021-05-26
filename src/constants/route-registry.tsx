@@ -4,6 +4,16 @@ const RouteRegistry = {
   },
   app: {
     path: '/app',
+    subPaths: {
+      personnelManagement: {
+        path: '/pm',
+        subPaths: {
+          employees: {
+            path: '/employees'
+          }
+        }
+      }
+    }
   },
   user: {
     path: '/user',

@@ -12,8 +12,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { DatePicker, KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
-import MomentUtils from '@date-io/moment';
-import moment, { Moment } from 'moment';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
@@ -39,10 +37,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp(props: any) {
   const classes = useStyles();
-
-  const [selectedDate, handleDateChange] = useState<Moment | null>();
-
-  const today = moment();
 
   const validationSchema = yup.object({
     email: yup

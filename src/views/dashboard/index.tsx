@@ -175,7 +175,7 @@ const Dashboard = (props: PaperbaseProps) => {
           <main className={classes.mainContent}>
             {/* <Content /> */}
             <Suspense fallback={<div className="loading" />}>
-              <Routes />
+              <Routes {...props} />
             </Suspense>
           </main>
         </div>

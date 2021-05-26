@@ -16,11 +16,19 @@ import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
 import SettingsInputComponentIcon from '@material-ui/icons/SettingsInputComponent';
 import TimerIcon from '@material-ui/icons/Timer';
 import SettingsIcon from '@material-ui/icons/Settings';
+import EventIcon from '@material-ui/icons/Event';
 import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup';
 import { Omit } from '@material-ui/types';
 import Menu from './menu';
 
 const categories = [
+  {
+    id: 'Personnel Management',
+    children: [
+      { id: 'Employees', icon: <PeopleIcon />, active: true },
+      { id: 'Leaves', icon: <EventIcon /> },
+    ],
+  },
   {
     id: 'Develop',
     children: [
@@ -97,7 +105,7 @@ function Navigator(props: NavigatorProps) {
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          Paperbase
+          Dashboard
         </ListItem>
         <ListItem className={clsx(classes.item, classes.itemCategory)}>
           <ListItemIcon className={classes.itemIcon}>

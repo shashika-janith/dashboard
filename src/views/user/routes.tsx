@@ -20,7 +20,7 @@ const Routes = ({ match }: any) => {
     <Switch>
       <Redirect
         exact
-        from={`${match.url}`}
+        from={RouteRegistry.user.path}
         to={`${match.url}${RouteRegistry.user.subPaths.signIn.path}`}
       />
       <Route
